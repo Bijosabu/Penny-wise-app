@@ -55,7 +55,7 @@ Categorytype
                 ),
               ),
               SizedBox(
-                height: 50,
+                height: 20,
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -80,7 +80,7 @@ Categorytype
               ),
               //sizedbox
               SizedBox(
-                height: 10,
+                height: 5,
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
