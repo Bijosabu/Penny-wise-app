@@ -20,15 +20,15 @@ class CategoryDB implements CategoryDbFunctions {
   ValueNotifier<List<CategoryModel>> expenseCategoryList = ValueNotifier([]);
   @override
   Future<void> insertCategory(CategoryModel value) async {
-    final _categoryDb = await Hive.openBox<CategoryModel>(Db_name);
-    await _categoryDb.put(value.id, value);
+    final categoryDb = await Hive.openBox<CategoryModel>(Db_name);
+    await categoryDb.put(value.id, value);
     refreshUI();
   }
 
   @override
   Future<List<CategoryModel>> getCategories() async {
-    final _categoryDb = await Hive.openBox<CategoryModel>(Db_name);
-    return _categoryDb.values.toList();
+    final categoryDb = await Hive.openBox<CategoryModel>(Db_name);
+    return categoryDb.values.toList();
   }
 
   Future<void> refreshUI() async {
@@ -51,8 +51,8 @@ class CategoryDB implements CategoryDbFunctions {
 
   @override
   Future<void> deletecategory(String CategoryId) async {
-    final _categoryDb = await Hive.openBox<CategoryModel>(Db_name);
-    _categoryDb.delete(CategoryId);
+    final categoryDb = await Hive.openBox<CategoryModel>(Db_name);
+    categoryDb.delete(CategoryId);
     refreshUI();
   }
 }

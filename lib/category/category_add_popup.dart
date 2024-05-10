@@ -6,7 +6,7 @@ ValueNotifier<CategoryType> selectedTypeNotifier =
     ValueNotifier(CategoryType.expense);
 
 Future<void> showcategorypopup(BuildContext context) async {
-  final _namecontroller = TextEditingController();
+  final namecontroller = TextEditingController();
   showDialog(
     context: context,
     builder: (ctx) {
@@ -19,15 +19,15 @@ Future<void> showcategorypopup(BuildContext context) async {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextFormField(
-              controller: _namecontroller,
-              decoration: InputDecoration(
+              controller: namecontroller,
+              decoration: const InputDecoration(
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10))),
                   hintText: 'Category name'),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
+          const Padding(
+            padding: EdgeInsets.all(8.0),
             child: Row(
               children: [
                 RadioButton(title: 'Income', type: CategoryType.income),
@@ -39,27 +39,28 @@ Future<void> showcategorypopup(BuildContext context) async {
             padding: const EdgeInsets.all(10.0),
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                primary: Colors.deepPurple[400],
+                backgroundColor: Colors.deepPurple[400],
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ), // Change background color here
               ),
               onPressed: () {
-                final _name = _namecontroller.text;
+                final name = namecontroller.text;
 
-                if (_name.isEmpty) {
+                if (name.isEmpty) {
                   return;
                 }
-                final _type = selectedTypeNotifier.value;
-                final _category = CategoryModel(
+                final type = selectedTypeNotifier.value;
+                final category = CategoryModel(
                     id: DateTime.now().millisecondsSinceEpoch.toString(),
-                    name: _name,
-                    type: _type);
-                CategoryDB().insertCategory(_category);
+                    name: name,
+                    type: type);
+                CategoryDB().insertCategory(category);
                 Navigator.of(ctx).pop();
               },
               child: const Text(
                 'Add',
+                style: TextStyle(color: Colors.white),
               ),
             ),
           ),

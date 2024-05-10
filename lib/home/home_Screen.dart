@@ -2,30 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:moneysaver/home/widgets/bottomNavigation.dart';
 import 'package:moneysaver/transactions/transactionScreen.dart';
 import 'package:moneysaver/category/categoryScreen.dart';
-import 'package:moneysaver/dbfunctions/category_db.dart';
-import 'package:moneysaver/models/category/category_model.dart';
 import 'package:moneysaver/category/category_add_popup.dart';
 import 'package:moneysaver/transactions/addTransactionScreen.dart';
 
 class HomeScreen extends StatelessWidget {
-  HomeScreen({super.key});
+  const HomeScreen({super.key});
   static ValueNotifier<int> selectedIndexNotifier = ValueNotifier(0);
   final _pages = const [
-    categoryScreen(),
     transactionScreen(),
+    categoryScreen(),
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[100],
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Penny Wise',
-          style: TextStyle(color: Colors.white, fontSize: 22),
+          style: TextStyle(color: Color(0xFF545AA2), fontSize: 22),
         ),
         centerTitle: true,
       ),
-      bottomNavigationBar: moneyManagerBottomNavigation(),
+      bottomNavigationBar: const moneyManagerBottomNavigation(),
       body: SafeArea(
         child: ValueListenableBuilder(
           valueListenable: selectedIndexNotifier,
@@ -35,17 +33,16 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Color(0xFF545AA2),
+        backgroundColor: const Color(0xFF545AA2),
         onPressed: () {
           if (selectedIndexNotifier.value == 0) {
-            showcategorypopup(context);
-          } else {
             Navigator.of(context).push(MaterialPageRoute(
               builder: (context) {
-                return addTransactionScreen();
+                return const addTransactionScreen();
               },
             ));
-
+          } else {
+            showcategorypopup(context);
             // print('add category');
             // final _sample = CategoryModel(
             //     id: DateTime.now().millisecondsSinceEpoch.toString(),
@@ -54,7 +51,10 @@ class HomeScreen extends StatelessWidget {
             // CategoryDB().insertCategory(_sample);
           }
         },
-        child: Icon(Icons.add),
+        child: const Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
       ),
     );
   }

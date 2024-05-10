@@ -20,6 +20,7 @@ class _categoryScreenState extends State<categoryScreen>
     super.initState();
   }
 
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: [
@@ -41,7 +42,7 @@ class _categoryScreenState extends State<categoryScreen>
             controller: _tabcontroller,
             children: [
               IncomeCategory(),
-              ExpenseCategory(),
+              const ExpenseCategory(),
             ],
           ),
         ),

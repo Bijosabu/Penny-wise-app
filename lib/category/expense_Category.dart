@@ -1,5 +1,3 @@
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import 'package:moneysaver/dbfunctions/category_db.dart';
 import 'package:moneysaver/models/category/category_model.dart';
@@ -25,8 +23,8 @@ class ExpenseCategory extends StatelessWidget {
             ),
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.only(top: 20),
+        const Padding(
+          padding: EdgeInsets.only(top: 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -39,7 +37,7 @@ class ExpenseCategory extends StatelessWidget {
                 textAlign: TextAlign.start,
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 10),
+                padding: EdgeInsets.only(left: 10),
                 child: Icon(
                   Icons.arrow_drop_down_circle,
                   color: Colors.blueGrey,
@@ -56,7 +54,7 @@ class ExpenseCategory extends StatelessWidget {
               builder: (BuildContext context, List<CategoryModel> expenselist,
                   child) {
                 return ListView.separated(
-                  padding: EdgeInsets.fromLTRB(22, 22, 22, 0),
+                  padding: const EdgeInsets.fromLTRB(22, 22, 22, 0),
                   itemBuilder: (context, index) {
                     final category = expenselist[index];
                     return Card(
@@ -70,7 +68,7 @@ class ExpenseCategory extends StatelessWidget {
                           onPressed: () {
                             CategoryDB().deletecategory(category.id);
                           },
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.delete,
                             color: Colors.red,
                           ),
@@ -79,7 +77,7 @@ class ExpenseCategory extends StatelessWidget {
                     );
                   },
                   separatorBuilder: (context, index) {
-                    return Padding(padding: EdgeInsets.all(05));
+                    return const Padding(padding: EdgeInsets.all(05));
                   },
                   itemCount: expenselist.length,
                 );

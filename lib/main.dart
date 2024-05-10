@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:moneysaver/home/home_Screen.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:moneysaver/models/category/category_model.dart';
 import 'package:moneysaver/Splash Screen/splash_Screen.dart';
 import 'package:moneysaver/models/transactions/transaction_model.dart';
-import 'package:moneysaver/colorPallete/pallete.dart';
+// import 'package:moneysaver/colorPallete/pallete.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,6 +26,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
           primarySwatch: const MaterialColor(
