@@ -13,11 +13,11 @@ class _AnimatedSplashScreenState extends State<AnimatedSplashScreen> {
   @override
   void initState() {
     Future.delayed(
-      Duration(seconds: 4),
+      const Duration(seconds: 4),
       () {
         Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (context) {
-            return HomeScreen();
+            return const HomeScreen();
           },
         ));
       },
@@ -39,8 +39,8 @@ class _AnimatedSplashScreenState extends State<AnimatedSplashScreen> {
           // ignore: prefer_const_constructors
           Text(
             'Penny Wise',
-            style: TextStyle(
-              color: const Color(0xFF545AA2),
+            style: const TextStyle(
+              color: Color(0xFF545AA2),
               fontSize: 26,
               fontFamily: 'Roboto',
               fontWeight: FontWeight.bold,

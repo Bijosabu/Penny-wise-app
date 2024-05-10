@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:moneysaver/models/category/category_model.dart';
 import 'package:hive/hive.dart';
 part 'transaction_model.g.dart';

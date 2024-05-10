@@ -25,12 +25,12 @@ class TransactionDb implements TransactionDbFunctions {
   }
 
   Future<void> refresh() async {
-    final _list = await getTransaction();
-    _list.sort(
+    final list = await getTransaction();
+    list.sort(
       (first, second) => second.date.compareTo(first.date),
     );
     transactionNotifier.value.clear();
-    transactionNotifier.value.addAll(_list);
+    transactionNotifier.value.addAll(list);
     transactionNotifier.notifyListeners();
   }
 

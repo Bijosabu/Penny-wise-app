@@ -1,5 +1,3 @@
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import 'package:moneysaver/dbfunctions/category_db.dart';
 import 'package:moneysaver/models/category/category_model.dart';
@@ -13,10 +11,10 @@ class IncomeCategory extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(
+        const SizedBox(
           height: 30,
         ),
-        Container(
+        SizedBox(
           height: 200,
           child: ColorFiltered(
             colorFilter: ColorFilter.mode(color, BlendMode.modulate),
@@ -31,8 +29,8 @@ class IncomeCategory extends StatelessWidget {
         //   child: Lottie.asset('assets/lottie/incomelottie1.json',
         //       fit: BoxFit.scaleDown),
         // ),
-        Padding(
-          padding: const EdgeInsets.all(06.0),
+        const Padding(
+          padding: EdgeInsets.all(06.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -45,7 +43,7 @@ class IncomeCategory extends StatelessWidget {
                 textAlign: TextAlign.start,
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 10),
+                padding: EdgeInsets.only(left: 10),
                 child: Icon(
                   Icons.arrow_drop_down_circle,
                   color: Colors.blueGrey,
@@ -62,7 +60,7 @@ class IncomeCategory extends StatelessWidget {
               builder:
                   (BuildContext context, List<CategoryModel> newlist, child) {
                 return ListView.separated(
-                    padding: EdgeInsets.fromLTRB(22, 22, 22, 0),
+                    padding: const EdgeInsets.fromLTRB(22, 22, 22, 0),
                     itemBuilder: (context, index) {
                       final category = newlist[index];
                       return Card(
@@ -76,7 +74,7 @@ class IncomeCategory extends StatelessWidget {
                             onPressed: () {
                               CategoryDB().deletecategory(category.id);
                             },
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.delete,
                               color: Colors.red,
                             ),
